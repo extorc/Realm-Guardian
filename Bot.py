@@ -1,6 +1,7 @@
 from discord.ext import commands
 import requests
 from dotenv import load_dotenv,dotenv_values
+from utils import check_if_url
 
 temp = dotenv_values(".env")
 TOKEN = temp["TOKEN"]
