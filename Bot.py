@@ -10,13 +10,6 @@ bot = commands.Bot(command_prefix="~")
 async def on_ready():
     print("Yay")
 
-def check_if_url(link):
-    try:
-        site=requests.get(link)
-        return True;
-    except Exception:
-        return False
-
 @bot.command()
 async def format(ctx):
     msg = await getReply(ctx)
