@@ -2,7 +2,7 @@ import discord
 from discord.ext import commands
 import requests
 from dotenv import load_dotenv,dotenv_values
-from utils import check_if_url,getReply,TOKEN,formattingMessage,formattedCodeImageLink
+from utils import *
 
 bot = commands.Bot(command_prefix="~")
 
@@ -20,10 +20,18 @@ def check_if_url(link):
 @bot.command()
 async def format(ctx):
     msg = await getReply(ctx)
-    embed = discord.Embed(title = "Please Format your code in the Message"
-    ,description = formattingMessage % msg.author.id)
+    embed = discord.Embed(title = "Please Format your code in the Message",
+    description = formattingMessage % msg.author.id)
     embed.set_image(url = formattedCodeImageLink)
     await ctx.send(embed = embed)    
+
+@bot.command()
+async def hs(ctx):
+    msg = await getReply(ctx)
+    embed = discord.Embed(title = "Please highlight your code syntax",
+    description = codeHighlightMessage % msg.author.id)
+    embed.set_image(url =highlightCodeSyntaxMessage)   
+    await ctx.send(embed = embed) 
 
 @bot.command()
 async def rr(ctx):
